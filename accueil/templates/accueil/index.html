@@ -1,0 +1,16 @@
+{% include 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div style="text-align: center;">
+        <h1><span style="font-size: 90%;">Bienvenu sur</span>  <span style="color: rgb(11, 11, 59);">forward</span></h1>
+        <p style="padding-bottom: 2%;font-size: 110%;">Cliquez sur le bouton à l'entête de la page, à gauche, pour accéder au menu et vous connecter.</p>
+    <blockquote>
+        <footer style="border: 1px solid rgb(11, 11, 77);border-left:none ;border-right: none;border-bottom: none;padding-top: 2%; margin-top: 15%;">
+            © {{date_actuelle|date:"Y"}} <span style="font-weight: bolder;color: rgb(7, 7, 46);">Group forward </span>
+        </footer>
+    </blockquote>
+</div>
+</div>
+{% endblock %}

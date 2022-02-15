@@ -1,0 +1,17 @@
+{% include 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div style="text-align: center;">
+        <h1 >Bienvenu sur l'application de Sondages</h1>
+        <p style="padding-bottom: 2%;font-size: 110%;">Votez pour ou contre une publication ou encore abstenez-vous !</p>
+        <a class="polls" style="border: 1px solid white;color: white; background-color: rgb(7, 7, 83); text-decoration: none;text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;padding-top: 2%;padding-bottom: 3%;padding-left: 4%;padding-right: 4%; border-radius: 40px/40px;" href ="{% url 'polls:index' %}">Voir les publications</a>
+    <blockquote>
+        <footer style="border: 1px solid rgb(11, 11, 77);border-left:none ;border-right: none;border-bottom: none;padding-top: 2%; margin-top: 15%;">
+            © {{date_actuelle|date:"Y"}} <span style="font-weight: bolder;color: rgb(7, 7, 46);">Group forward </span>
+        </footer>
+    </blockquote>
+</div>
+</div>
+{% endblock %}

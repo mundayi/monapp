@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% if anatomie_list %}
+<h1 style="border: 1px solid blue;border: none;background-color: rgb(3, 3, 39);color: white;margin-left: -2.5%;margin-top: 0%; margin-right: -2.7%;padding: 2%;text-align: center;">ANATOMIE</h1>
+<div style="border: 1px solid blue;border: none; display: flex;flex-direction: column;">
+    {% for anatomie in anatomie_list %}
+        <div style="border: 1px solid rgba(0, 0, 0, 0.192); padding-top: 5%;border-radius: 0px 0px 3px 3px; box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.123);">
+            <a href="{% url 'g3:anatomie' anatomie.id %}"><video src="{{ MEDIA_URL }}{{anatomie.anatomie}}" height="80%" width="100%"></video></a>
+            <span style="border: 1px solid blue;border: none; text-align: center;background-color: white;"><a href="{% url 'g3:anatomie' anatomie.id %}" >{{anatomie.description|linebreaks}}</a><p>Postée le {{anatomie.date|date:"d-m-Y"}} à {{anatomie.date|date:"H:i"}}</p><p>Vue {{anatomie.nb_vues}} fois</p><br/></span>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+<div>
+<p style="margin-top: 10%;">
+<a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="{% url 'g3:c_anat' %}">
+Lire les commentaires, les questions et les reponses
+</a>
+</p>
+<p style="margin-top: 10%;">
+<a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="{% url 'g3:index_anat' %}">
+   Back to top
+</a> 
+</p>
+{% if is_paginated %}
+<div style="margin-top: 20%;" class="pagination">
+{% if page_obj.has_previous %}
+<a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="?page={{ page_obj.previous_page_number }}">Précédente</a> —
+{% endif %}
+Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
+{% if page_obj.has_next %}
+— <a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="?page={{ page_obj.next_page_number }}">Suivante</a>
+{% endif %}
+</div>
+{% endif %}
+</div>
+{% include 'footer.html' %}
+{% endblock %}

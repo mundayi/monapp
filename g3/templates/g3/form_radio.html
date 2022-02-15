@@ -1,0 +1,22 @@
+{% include 'base.html' %}
+
+{% load static %}
+
+<p class="it" id="msg" style="text-align: center;">Si vous commentez une publication, indiquez à l'entête de votre publication; le nom de la personne qui l'a publiée, précédé de la phrase suivante: "Je commente la publication de"</p>  
+<p>
+    <style>
+        #input_anap:hover{
+            background-color: rgba(11, 11, 66, 0.425);
+            color: black;
+        }
+        #input_anap:focus{
+            background-color: rgb(11, 11, 59);
+            color: wheat;
+        }
+    </style>
+    <form style="width: 100%;margin: auto;" action="." method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p title="votre commentaire doit être en rapport avec l'anapath">{{radio}}</p>
+    <input id="input_anap" style="box-shadow: 0px 2px 2px 2px rgba(0, 0, 255, 0.034); border-color: rgba(0, 0, 255, 0.212); border-radius: 2px/2px;padding: 1.5%;margin-left: 50%;" type="submit" value="Voici mon commentaire"/>
+</p>
+{% include 'footer.html' %}

@@ -1,0 +1,93 @@
+{% load static %}
+
+<div style=" border: 1px solid rgba(0, 0, 20, 0.363);border-bottom: none; box-shadow: 0px 1px rgba(0, 0, 2, 0.322); display: flex;flex-direction: row;margin-left: -9px;margin-right: -9px;border-top: none;padding-bottom: 5%;padding-top: 3%;border-left: none;border-right: none;">
+    <button id="btnMenu" style="border: 1px solid blue;border: none; margin-left: 7.7%;background-color: rgba(11, 11, 75, 0);color: rgb(11, 11, 70); display: flex;-webkit-transform: rotate(90deg);transform: rotate(90deg) scale(1.9);">|||</button>
+    <span style="border: 1px solid blue;width: 35%;margin: auto;font-size: 150%;color: rgb(11, 11, 59); font-weight: bolder;border: none;">forward</span>
+</div>
+
+<nav style=" padding-top: 5%; padding-bottom: 2%;overflow-x: hidden;overflow-y: auto; display: none;border: 1px solid blue;box-shadow: 1px 1px rgba(0, 0, 0, 0.459); border: none; border-radius: 0px 0px 4px; margin-left: -8.5px; padding-left: 60px;color: white; background-color: rgb(2, 2, 27); word-wrap: break-word;overflow-x: hidden;overflow-y: auto;" id="nav">
+         
+         {% if user.is_authenticated %}
+            <span style="border: 1px solid blue;border: none; word-wrap: break-word;overflow-y: hidden;overflow-x: hidden;margin-left: 15%;text-align: center;">Bienvenu, {{user}}</span><p><a style="border: 1px solid blue;padding-left: 15%;padding-right: 15%;padding-top: 4%;padding-bottom: 4%;border-radius: 4px/4px ; border: none; color: white;background-color: rgba(14, 14, 241, 0.507);    text-decoration: none;
+                text-decoration-line: none;
+                text-decoration-thickness: initial;
+                text-decoration-style: initial;
+                text-decoration-color: initial;" href="{% url 'logout'%}?next={{request.path}}">DECONNEXION</a></p>
+        {% else %}
+            <p><a style="border: 1px solid blue;border: none; border-radius: 4px/4px; color: white;padding-left: 15%;padding-right: 15%;padding-top: 4%;padding-bottom: 4%;text-align: center;background-color: rgba(14, 14, 241, 0.507); text-decoration: none;
+                text-decoration-line: none;
+                text-decoration-thickness: initial;
+                text-decoration-style: initial;
+                text-decoration-color: initial;" href="{% url 'login'%}?next={{request.path}}">CONNEXION</a></p>
+        {% endif %}   
+    <div style="font-size: 110%;">
+        <p><a style="border: 1px solid white;border: none; color: white;
+            text-decoration-line: none;
+            text-decoration-thickness: initial;
+            text-decoration-style: initial;" href="/">Accueil</a>
+
+        <p><a style="border: 1px solid white;border: none;color: white;
+            text-decoration-line: none;
+            text-decoration-thickness: initial;
+            text-decoration-style: initial;" href="/pages/">Sondage</a>
+        
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;" href="{% url 'g3:index_anap' %}">Anapath</a></p> 
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_anat' %}">Anatomie</a></p>
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_biocli' %}">Biologie Clinique</a></p>
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_embryo' %}">Embryologie</a></p>
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_immuno' %}">Immunologie</a></p>
+        <p><a style=" border: 1px solid white;border:none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_micro' %}">Microbiologie</a></p>
+        <p><a style="border: 1px solid white;border: none;color: white;    text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_parasito' %}">Parasitologie</a></p>
+        <p><a style="  border: 1px solid white;border: none;color: white;  text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_pharm' %}">Pharmacologie</a></p>
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_physio' %}">Physiopathologie</a></p>
+        <p><a style="  border: 1px solid white;border: none;color: white;  text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_physios' %}">Physiologie spéciale</a></p>
+        <p><a style=" border: 1px solid white;border: none;color: white;   text-decoration: none;
+                    text-decoration-line: none;
+                    text-decoration-thickness: initial;
+                    text-decoration-style: initial;"  href="{% url 'g3:index_radio' %}">Radiologie</a></p>
+    </div>
+</nav>    
+
+<script>
+window.onload=function(){
+    var bouton = document.getElementById('btnMenu');
+    var nav = document.getElementById('nav');
+    bouton.onclick = function(e){
+        if(nav.style.display=="block"){
+            nav.style.display="none";
+        }else{
+            nav.style.display="block";
+        }
+    };
+};
+</script>

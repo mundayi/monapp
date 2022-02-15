@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div style="margin-top: 10%;">
+    <video title="double-cliquez sur la vidéo pour la lire en plein écran" src="{{ MEDIA_URL }}{{Microbiologie.microbiologie}}" controls autoplay loop width="100%"></video><p>{{Microbiologie.description}}</p>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

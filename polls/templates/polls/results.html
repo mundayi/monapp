@@ -1,0 +1,17 @@
+{% include 'base.html' %}
+
+{% load static %}
+
+<div style="margin-top: 5%;">
+<a style=" border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href ="{% url 'polls:index' %}">Retourner à la page index de la publication</a>
+<p style="margin-top: 10%; font-size: 110%;border: 1px solid rgb(11, 11, 80);padding: 2.5%;overflow-y: hidden;overflow-x: hidden;word-wrap: break-word;background-color: rgba(11, 11, 68, 0.144);border-left: none;border-right: none;" >{{ question.question_text }}</p>
+ 
+<ul style="border: 1px solid rgb(11, 11, 87);border-radius: 4px/4px; margin-top: 5%;padding: 2.5%;overflow-y: hidden;overflow-x: hidden;word-wrap: break-word;">
+    {% for choice in question.choice_set.all %}
+    <li style="color: rgb(9, 9, 122);" class ="list-group-item">
+        {{ choice.choice_text }} = <span class ="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+{% include 'footer.html' %}

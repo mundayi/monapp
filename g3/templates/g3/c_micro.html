@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+   <h1>Microbiologie-Commentaires</h1>
+    {% for comment_micro in micro %}
+    <div style="border: 1px solid rgb(11, 11, 78);display: flex;flex-direction: column;border-left: none;border-right: none; background-color: rgba(11, 11, 77, 0.144);margin-top: 2%;border-bottom: none;">
+        <div style="border: 1px solid blue;margin-top: 1.5%;border: none; display: flex;flex-direction: column;">
+            <div style="border: 1px solid blue;text-decoration: underline; margin-left: 2.5%;border: none; word-wrap: break-word;overflow-y: hidden;overflow-x: hidden; color: blue; font-weight: bolder;font-size: 120%;margin-right: 70%;">{{comment_micro.user}}</div><br/>
+            <div style="border: 1px solid blue; padding-top: 0.5%;word-wrap: break-word;border: none;text-decoration: underline; overflow-y: hidden;overflow-x: hidden;margin-right: 50%;margin-left: 2.5%;font-size: 90%;" class="t">{{comment_micro.pub_date|date:"d-m-Y"}} à {{comment_micro.pub_date|date:"H:i"}}</div>
+        </div>
+            <style>
+                .t:hover{
+                    color: rgba(255, 0, 0, 0.822);
+                }
+            </style>
+    
+        <p style="border: 1px solid blue;margin-left: 2.5%;margin-right: 2.5%;border: none; font-size: 110%;word-wrap: break-word;overflow-y: hidden;overflow-x: hidden;">{{comment_micro.comments}}</p>
+    </div>
+    {% endfor %}
+    <p style="margin-top: 10%;">
+        <a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="{% url 'g3:form_micro' %}">
+            Poster un commentaire, une question ou reponse a une question
+        </a>
+    </p>
+    {% if is_paginated %}
+    <div style="margin-top: 20%;" class="pagination">
+    {% if page_obj.has_previous %}
+    <a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="?page={{ page_obj.previous_page_number }}">Précédente</a> —
+    {% endif %}
+    Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+    — <a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="?page={{ page_obj.next_page_number }}">Suivante</a>
+    {% endif %}
+    </div>
+    {% endif %}
+  {% include 'footer.html' %}  
+{% endblock %}

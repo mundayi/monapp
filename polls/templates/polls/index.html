@@ -1,0 +1,27 @@
+{% include 'base.html' %}
+
+{% load static %}
+
+<h1>Publication du Chef de promotion</h1>
+
+{% if latest_question_list %}
+
+    {% for question in latest_question_list %}
+        <div style="background-color: rgba(11, 11, 82, 0.144); border: 1px solid rgb(11, 11, 83);display: flex;flex-direction: column;padding-bottom: 2.5%;border-left: none;border-right: none;">
+            <p style="text-decoration: underline;font-size: 90%;border: 1px solid blue;margin-left: 2.5%;margin-right: 50%;border: none; overflow-y: hidden;overflow-x: hidden;word-wrap: break-word;">{{question.pub_date|date:"d-m-Y"}} à {{question.pub_date|date:"H:i"}}</p>
+            <p style="font-size: 110%;border: 1px solid blue;margin-left: 2.5%;margin-right: 2.5%;overflow-y: hidden;overflow-x: hidden;border: none; word-wrap: break-word;">{{ question.question_text }}</p>
+            <div style="border: 1px solid blue; display: flex;flex-direction: row;margin-top: 5%;margin-left: 2.5%;margin-right: 2.5%;border: none; overflow-y: hidden;overflow-x: hidden;word-wrap: break-word;">
+                <a style="border: 1px solid blue;border: none; padding-top: 1%;padding-right: 1%;padding-bottom: 2%;padding-right: 5%;border: none; padding-left: 5%; background-color: rgb(11, 11, 61);color: white; margin-right: 5px;border-radius: 4px/4px;text-decoration: none;text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;overflow-y: hidden;overflow-x: hidden;word-wrap: break-word;" href ="{% url 'polls:detail' question.id %}" class ="btn btn-primary btn-sm">Votez maintenant</a>
+                <a style="border: 1px solid blue;border: none; background-color: rgb(11, 11, 66);color: white;padding-top: 1%;border: none; padding-right: 1%;padding-bottom: 2%;padding-right: 5%;padding-left: 5%; border-radius: 4px/4px;text-decoration: none;text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;overflow-y: hidden;overflow-x: hidden;word-wrap: break-word;" href ="{% url 'polls:results' question.id %}">Résultats</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+<h4>Il n'y a aucune publication pour le moment.</h4>
+{% endif %}
+<p>
+    <a style="border: 1px solid blue;border-radius: 4px/4px; padding-left: 2.5%;padding-right: 2.5%;padding-top: 1%;padding-bottom: 1.5%; color: white;background-color: rgb(6, 6, 71);border: none;  text-decoration-line: none;text-decoration-thickness: initial;text-decoration-style: initial;" href="{% url 'polls:form_texte' %}">
+        Poster
+    </a>
+</p>
+{% include 'footer.html' %}

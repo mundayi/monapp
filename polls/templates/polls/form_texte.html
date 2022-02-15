@@ -1,0 +1,10 @@
+{% include 'base.html' %}
+
+{% load static %}
+ 
+    <form style="width: 100%;margin: auto;" action="." method="post">
+    {% csrf_token %}
+    {{texte.as_p}}
+    <input style="margin-left: 45%; border: 1px solid blue;border: none; padding-top: 2%;padding-bottom: 2%;padding-right: 5%;padding-left: 5%; background-color: rgb(11, 11, 61);color: white; margin-right: 5px;border-radius: 4px/4px;" type="submit" value="Poster" />
+    </form>
+    {% include 'footer.html' %}
