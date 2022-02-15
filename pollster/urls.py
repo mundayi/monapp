@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from .import settings
@@ -21,6 +22,8 @@ from django.conf.urls.static import static
 from django.urls.resolvers import URLPattern
 from django.urls import re_path
 from polls.models import Choice
+from g3 import models
+from g3 import urls
 
 
 urlpatterns = [

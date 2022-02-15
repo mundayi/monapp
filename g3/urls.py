@@ -4,7 +4,6 @@ from django.urls import URLPattern
 from django.urls import path
 from . import views
 from django.urls import re_path
-from voting.views import vote_on_object
  
 
 app_name = 'g3'
