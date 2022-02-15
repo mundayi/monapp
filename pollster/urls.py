@@ -34,20 +34,3 @@ urlpatterns = [
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
-
-urlpatterns += static(settings.MEDIA_URL,
-document_root=settings.MEDIA_ROOT)
-
-urlpatterns += static(settings.STATIC_URL,
-document_root=settings.STATIC_ROOT)
-
-if settings.DEBUG:
-    urlpatterns += [
-        re_path(r'^static/(?P<path>.*)$', views.serve),
-    ]
-
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-# ... the rest of your URLconf here ...
-
-urlpatterns += staticfiles_urlpatterns()
