@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from operator import truediv
 from pathlib import Path
 import os
 
@@ -45,9 +44,8 @@ EMAIL_HOST_USER = 'mundayiandre2@gmail.com'
 # Application definition
 
 INSTALLED_APPS = [
-    'accueil.apps.AccueilConfig',
     'g3.apps.G3Config',
-    'voting',
+    'accueil.apps.AccueilConfig',
     'polls.apps.PollsConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
