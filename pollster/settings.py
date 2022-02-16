@@ -26,7 +26,7 @@ SECRET_KEY = 'dhefhiiiasosafoishfidfishfosis!@#@$#^@$#&%$&$%&#&%^*^&(*&_)()(=++=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mob.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 DEFAULT_FROM_EMAIL = 'mundayiandre2@gmail.com'
 
