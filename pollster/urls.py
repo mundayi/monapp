@@ -22,8 +22,6 @@ from django.conf.urls.static import static
 from django.urls.resolvers import URLPattern
 from django.urls import re_path
 from polls.models import Choice
-from g3 import models
-from g3 import urls
 
 
 urlpatterns = [

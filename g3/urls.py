@@ -2,7 +2,7 @@
 from urllib.parse import urlparse
 from django.urls import URLPattern
 from django.urls import path
-from . import views
+from g3 import views
 from django.urls import re_path
  
 

@@ -11,7 +11,6 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models import F
-from importlib.metadata import files
 from django.core.files import File
 from django import forms
 from django.views.generic import ListView, DetailView
