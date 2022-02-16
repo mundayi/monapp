@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from importlib.metadata import files
 from django.core.files import File
 from django import forms
 from django.forms.forms import Form
